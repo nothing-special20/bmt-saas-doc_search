@@ -1,0 +1,6 @@
+Django
+gunicorn
+pytesseract
+pdf2image
+Pillow
+elasticsearch

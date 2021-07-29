@@ -49,7 +49,7 @@ def get_image_list(open_object, filename):
             image_list.append(page)
     else:
         try:
-            image_list = pdf2image.convert_from_bytes(open_object.read())
+            image_list = pdf2image.convert_from_bytes(open_object) #.read()
         except:
             image_list = pdf2image.convert_from_path(open_object, fmt="jpeg")
 

@@ -41,6 +41,7 @@ def misc_cleaning(text):
 
 
 def get_image_list(open_object, filename):
+    print(type(open_object))
     if type(open_object)=='TemporaryUploadedFile':
         if '.tif' in filename:
             # img = Image.open(path) #.convert("RGBA")

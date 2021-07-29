@@ -11,7 +11,7 @@ from elasticsearch import Elasticsearch, helpers
 from django import template
 from django.template.defaultfilters import stringfilter
 from django.utils.safestring import mark_safe
-from django.core.files.uploadedfile TemporaryUploadedFile
+from django.core.files.uploadedfile import TemporaryUploadedFile
 
 from .models import MiscDocs
 

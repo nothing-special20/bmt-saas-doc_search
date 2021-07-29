@@ -74,20 +74,20 @@ def pdf_ocr(filename, image_list):
     all_pg_data = []
     for single_img in image_list:
         page_counter += 1
-        # try:
-        single_pg_txt = pytesseract.image_to_string(single_img).encode("utf-8")
-        single_pg_txt = str(single_pg_txt)
-        single_pg_txt = single_pg_txt.lower()
-        single_pg_txt = misc_cleaning(single_pg_txt)
+        try:
+            single_pg_txt = pytesseract.image_to_string(single_img).encode("utf-8")
+            single_pg_txt = str(single_pg_txt)
+            single_pg_txt = single_pg_txt.lower()
+            single_pg_txt = misc_cleaning(single_pg_txt)
 
-        single_pg_details = {'FILENAME': filename,
-                            'PG_NUM': str(page_counter),
-                            'DOC_TEXT': single_pg_txt}
+            single_pg_details = {'FILENAME': filename,
+                                'PG_NUM': str(page_counter),
+                                'DOC_TEXT': single_pg_txt}
 
-        all_pg_data.append(single_pg_details)
+            all_pg_data.append(single_pg_details)
 
-        # except:
-        #     pass
+        except:
+            pass
 
     return all_pg_data
 

@@ -50,10 +50,7 @@ def get_image_list(open_object, filename):
             for page_num, page in enumerate(ImageSequence.Iterator(img)):
                 image_list.append(page)
         else:
-            try:
-                image_list = pdf2image.convert_from_bytes(open_object.seek(0)) #.read()
-            except:
-                image_list = pdf2image.convert_from_path(open_object, fmt="jpeg")
+            image_list = pdf2image.convert_from_path(open_object.temporary_file_path(), fmt="jpeg")
 
     else:
         try:

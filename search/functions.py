@@ -41,17 +41,22 @@ def misc_cleaning(text):
 
 
 def get_image_list(open_object, filename):
-    if '.tif' in filename:
-        # img = Image.open(path) #.convert("RGBA")
-        img = Image.from_bytes(open_object)
-        image_list = []
-        for page_num, page in enumerate(ImageSequence.Iterator(img)):
-            image_list.append(page)
+    if type(open_object)=='TemporaryUploadedFile':
+        if '.tif' in filename:
+            # img = Image.open(path) #.convert("RGBA")
+            img = Image.from_bytes(open_object)
+            image_list = []
+            for page_num, page in enumerate(ImageSequence.Iterator(img)):
+                image_list.append(page)
+        else:
+            try:
+                image_list = pdf2image.convert_from_bytes(open_object.seek(0)) #.read()
+            except:
+                image_list = pdf2image.convert_from_path(open_object, fmt="jpeg")
+
     else:
-        try:
-            image_list = pdf2image.convert_from_bytes(open_object) #.read()
-        except:
-            image_list = pdf2image.convert_from_path(open_object, fmt="jpeg")
+        image_list = None
+
 
     return image_list
         

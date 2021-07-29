@@ -55,7 +55,10 @@ def get_image_list(open_object, filename):
                 image_list = pdf2image.convert_from_path(open_object, fmt="jpeg")
 
     else:
-        image_list = None
+        try:
+            image_list = pdf2image.convert_from_bytes(open_object.read())
+        except:
+            image_list = pdf2image.convert_from_path(open_object, fmt="jpeg")
 
 
     return image_list

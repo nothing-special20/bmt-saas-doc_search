@@ -11,7 +11,7 @@ from elasticsearch import Elasticsearch, helpers
 from django import template
 from django.template.defaultfilters import stringfilter
 from django.utils.safestring import mark_safe
-
+from django.core.files.uploadedfile TemporaryUploadedFile
 
 from .models import MiscDocs
 
@@ -42,7 +42,7 @@ def misc_cleaning(text):
 
 def get_image_list(open_object, filename):
     print(type(open_object))
-    if type(open_object) is django.core.files.uploadedfile.TemporaryUploadedFile:
+    if type(open_object) is TemporaryUploadedFile:
         if '.tif' in filename:
             # img = Image.open(path) #.convert("RGBA")
             img = Image.from_bytes(open_object)

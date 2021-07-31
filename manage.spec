@@ -5,7 +5,7 @@ block_cipher = None
 
 
 a = Analysis(['manage.py'],
-             pathex=['/Users/rapple2018/Documents/Professional/Entrepreneur/Bill More Tech/bmt-general/saas/ediscovery'],
+             pathex=['C:\Users\raq50\Documents\bmt-saas-doc_search\ediscovery'],
              binaries=[],
              datas=[],
              hiddenimports=[
@@ -37,7 +37,7 @@ pyz = PYZ(a.pure, a.zipped_data,
              cipher=block_cipher)
 
 exe = EXE(pyz,
-          a.scripts, 
+          a.scripts,
           [],
           exclude_binaries=True,
           name='manage',
@@ -53,7 +53,7 @@ exe = EXE(pyz,
 coll = COLLECT(exe,
                a.binaries,
                a.zipfiles,
-               a.datas, 
+               a.datas,
                strip=False,
                upx=True,
                upx_exclude=[],

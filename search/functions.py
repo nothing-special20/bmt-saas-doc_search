@@ -3,6 +3,12 @@ import json
 import sys
 import os
 
+sys.path.append('..\..\bmt-saas-dependencies')
+# Windows packages
+# Tesseract - https://github.com/UB-Mannheim/tesseract/wiki
+# Poppler - https://github.com/oschwartz10612/poppler-windows/releases/
+# Elasticsearch
+
 import pytesseract
 import pdf2image
 from PIL import Image, ImageSequence

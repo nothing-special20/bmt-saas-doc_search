@@ -5,8 +5,9 @@ block_cipher = None
 
 
 a = Analysis(['manage.py'],
-             pathex=['/Users/rapple2018/Documents/Professional/Entrepreneur/Bill More Tech/bmt-general/saas/ediscovery'],
-             binaries=[],
+             pathex=['/Users/rapple2018/Documents/Professional/Entrepreneur/Bill More Tech/bmt-saas-doc_search/ediscovery',
+                     '/Users/rapple2018/Documents/Professional/Entrepreneur/Bill More Tech/bmt-saas-dependencies'],
+             binaries=[('/Users/rapple2018/Documents/Professional/Entrepreneur/Bill More Tech/bmt-saas-dependencies/windows/tesseract/tesseract-ocr-w64-setup-v5.0.0-alpha.20210506.exe', '.')],
              datas=[],
              hiddenimports=[
                     'search',
@@ -37,9 +38,11 @@ pyz = PYZ(a.pure, a.zipped_data,
              cipher=block_cipher)
 
 exe = EXE(pyz,
-          a.scripts, 
+          a.scripts,
+          a.binaries, 
+          Tree('../bmt-saas-dependencies/windows'),
           [],
-          exclude_binaries=True,
+          exclude_binaries=False,
           name='manage',
           debug=False,
           bootloader_ignore_signals=False,
